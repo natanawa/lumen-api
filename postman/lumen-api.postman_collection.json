@@ -1,0 +1,1040 @@
+{
+	"info": {
+		"_postman_id": "117d9b2a-7759-4373-aa0a-6acc22f6b54b",
+		"name": "lumen-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "korodarmo@gmail.com",
+									"sessionValue": "korodarmo@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passw0rd",
+									"sessionValue": "passw0rd",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Wahyu Nugroho Indrawinata",
+									"sessionValue": "Wahyu Nugroho Indrawinata",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://lumen-api.local/register",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "korodarmo@gmail.com",
+									"sessionValue": "korodarmo@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passw0rd",
+									"sessionValue": "passw0rd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://lumen-api.local/login",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "bUFvRFFPMklXbXdTRXRSdVdhSm1GTGtNeHZHQkxJb3NPQ0NmRVhOOQ==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://lumen-api.local/logout",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Templates",
+			"item": [
+				{
+					"name": "List all checklists templates",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/templates",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create checklist template",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"foo template\",\n      \"checklist\": {\n        \"description\": \"my checklist\",\n        \"due_interval\": 3,\n        \"due_unit\": \"hour\"\n      },\n      \"items\": [\n        {\n          \"description\": \"my foo item\",\n          \"urgency\": 2,\n          \"due_interval\": 40,\n          \"due_unit\": \"minute\"\n        },\n        {\n          \"description\": \"my bar item\",\n          \"urgency\": 3,\n          \"due_interval\": 30,\n          \"due_unit\": \"minute\"\n        }\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/templates",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get checklist template",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attributes\": {\n      \"name\": \"foo template\",\n      \"checklist\": {\n        \"description\": \"my checklist\",\n        \"due_interval\": 3,\n        \"due_unit\": \"hour\"\n      },\n      \"items\": [\n        {\n          \"description\": \"my foo item\",\n          \"urgency\": 2,\n          \"due_interval\": 40,\n          \"due_unit\": \"minute\"\n        },\n        {\n          \"description\": \"my bar item\",\n          \"urgency\": 3,\n          \"due_interval\": 30,\n          \"due_unit\": \"minute\"\n        }\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/templates/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"templates",
+								"1"
+							]
+						},
+						"description": "Get checklist template by given templateId"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Checklist Template",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"foo template\",\n    \"checklist\": {\n      \"description\": \"my checklist\",\n      \"due_interval\": 3,\n      \"due_unit\": \"hour\"\n    },\n    \"items\": [\n      {\n        \"description\": \"my foo item\",\n        \"urgency\": 2,\n        \"due_interval\": 40,\n        \"due_unit\": \"minute\"\n      },\n      {\n        \"description\": \"my bar item\",\n        \"urgency\": 3,\n        \"due_interval\": 30,\n        \"due_unit\": \"minute\"\n      }\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/templates/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"templates",
+								"1"
+							]
+						},
+						"description": "Edit Checklist Template by given templateId"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete checklist template",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"foo template\",\n    \"checklist\": {\n      \"description\": \"my checklist\",\n      \"due_interval\": 3,\n      \"due_unit\": \"hour\"\n    },\n    \"items\": [\n      {\n        \"description\": \"my foo item\",\n        \"urgency\": 2,\n        \"due_interval\": 40,\n        \"due_unit\": \"minute\"\n      },\n      {\n        \"description\": \"my bar item\",\n        \"urgency\": 3,\n        \"due_interval\": 30,\n        \"due_unit\": \"minute\"\n      }\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/templates/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"templates",
+								"1"
+							]
+						},
+						"description": "Delete checklist template by given {templateId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign bulk checklists template",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"attributes\": {\n        \"object_id\": 1,\n        \"object_domain\": \"deals\"\n      }\n    },\n    {\n      \"attributes\": {\n        \"object_id\": 2,\n        \"object_domain\": \"deals\"\n      }\n    },\n    {\n      \"attributes\": {\n        \"object_id\": 3,\n        \"object_domain\": \"deals\"\n      }\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/templates/1/assigns",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"templates",
+								"1",
+								"assigns"
+							]
+						},
+						"description": "Assign bulk checklists template by given templateId to many domains"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checklist",
+			"item": [
+				{
+					"name": "Get Checklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1"
+							]
+						},
+						"description": "Get checklist by given checklistId. Note: We can include all items in checklist with by passing "
+					},
+					"response": []
+				},
+				{
+					"name": "Update checklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"type\": \"checklists\",\n    \"id\": 1,\n    \"attributes\": {\n      \"object_domain\": \"contact\",\n      \"object_id\": \"1\",\n      \"description\": \"Need to verify this guy house.\",\n      \"is_completed\": false,\n      \"completed_at\": null,\n      \"created_at\": \"2018-01-25T07:50:14+00:00\"\n    },\n    \"links\": {\n      \"self\": \"https://dev-kong.command-api.kw.com/checklists/50127\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1"
+							]
+						},
+						"description": "Update checklist by given checklistId"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete checklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"name\": \"foo template\",\n    \"checklist\": {\n      \"description\": \"my checklist\",\n      \"due_interval\": 3,\n      \"due_unit\": \"hour\"\n    },\n    \"items\": [\n      {\n        \"description\": \"my foo item\",\n        \"urgency\": 2,\n        \"due_interval\": 40,\n        \"due_unit\": \"minute\"\n      },\n      {\n        \"description\": \"my bar item\",\n        \"urgency\": 3,\n        \"due_interval\": 30,\n        \"due_unit\": \"minute\"\n      }\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1"
+							]
+						},
+						"description": "Delete checklist by given checklistId"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Checklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attributes\": {\n      \"object_domain\": \"contact\",\n      \"object_id\": \"1\",\n      \"due\": \"2019-01-25T07:50:14+00:00\",\n      \"urgency\": 1,\n      \"description\": \"Need to verify this guy house.\",\n      \"items\": [\n        \"Visit his house\",\n        \"Capture a photo\",\n        \"Meet him on the house\"\n      ],\n      \"task_id\": \"123\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists"
+							]
+						},
+						"description": "This creates a Checklist object."
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of checklists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attributes\": {\n      \"object_domain\": \"contact\",\n      \"object_id\": \"1\",\n      \"due\": \"2019-01-25T07:50:14+00:00\",\n      \"urgency\": 1,\n      \"description\": \"Need to verify this guy house.\",\n      \"items\": [\n        \"Visit his house\",\n        \"Capture a photo\",\n        \"Meet him on the house\"\n      ],\n      \"task_id\": \"123\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists"
+							]
+						},
+						"description": "We can include all items in checklist with by passing"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "Item Complete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"item_id\": 1\n    },\n    {\n      \"item_id\": 2\n    },\n    {\n      \"item_id\": 3\n    },\n    {\n      \"item_id\": 4\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/complete",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"complete"
+							]
+						},
+						"description": "Complete item(s)"
+					},
+					"response": []
+				},
+				{
+					"name": "Item Incomplete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"item_id\": 1\n    },\n    {\n      \"item_id\": 2\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/incomplete",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"incomplete"
+							]
+						},
+						"description": "Incomplete item(s)"
+					},
+					"response": []
+				},
+				{
+					"name": "List All Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"type\": \"checklists\",\n    \"id\": 1,\n    \"attributes\": {\n      \"object_domain\": \"contact\",\n      \"object_id\": \"1\",\n      \"description\": \"Need to verify this guy house.\",\n      \"is_completed\": false,\n      \"completed_at\": null,\n      \"created_at\": \"2018-01-25T07:50:14+00:00\"\n    },\n    \"links\": {\n      \"self\": \"https://dev-kong.command-api.kw.com/checklists/50127\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1/items",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1",
+								"items"
+							]
+						},
+						"description": "Get all items by given {checklistId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Checklist Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attribute\": {\n      \"description\": \"Need to verify this guy house.\",\n      \"due\": \"2019-01-19 18:34:51\",\n      \"urgency\": \"2\",\n      \"assignee_id\": 123\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1/items",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1",
+								"items"
+							]
+						},
+						"description": "Create item by given checklistId"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Checklist Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attributes\": {\n      \"object_domain\": \"contact\",\n      \"object_id\": \"1\",\n      \"due\": \"2019-01-25T07:50:14+00:00\",\n      \"urgency\": 1,\n      \"description\": \"Need to verify this guy house.\",\n      \"items\": [\n        \"Visit his house\",\n        \"Capture a photo\",\n        \"Meet him on the house\"\n      ],\n      \"task_id\": \"123\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1/items/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1",
+								"items",
+								"1"
+							]
+						},
+						"description": "Get checklist item by given {checklistId} and {itemId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Checklist Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attribute\": {\n      \"description\": \"Need to verify this guy house.\",\n      \"due\": \"2019-01-19 18:34:51\",\n      \"urgency\": \"2\",\n      \"assignee_id\": 123\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1/items/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1",
+								"items",
+								"1"
+							]
+						},
+						"description": "Edit Checklist Item on given {checklistId} and {itemId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Checklist Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attribute\": {\n      \"description\": \"Need to verify this guy house.\",\n      \"due\": \"2019-01-19 18:34:51\",\n      \"urgency\": \"2\",\n      \"assignee_id\": 123\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1/items/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1",
+								"items",
+								"1"
+							]
+						},
+						"description": "Delete checklist item by given {checklistId} and {itemId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bulk Checklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"id\": \"64\",\n      \"action\": \"update\",\n      \"attributes\": {\n        \"description\": \"\",\n        \"due\": \"2019-01-19 18:34:51\",\n        \"urgency\": \"2\"\n      }\n    },\n    {\n      \"id\": \"205\",\n      \"action\": \"update\",\n      \"attributes\": {\n        \"description\": \"{{data.attributes.description}}\",\n        \"due\": \"2019-01-19 18:34:51\",\n        \"urgency\": \"2\"\n      }\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/1/items/_bulk",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"1",
+								"items",
+								"_bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Summary Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"id\": \"64\",\n      \"action\": \"update\",\n      \"attributes\": {\n        \"description\": \"\",\n        \"due\": \"2019-01-19 18:34:51\",\n        \"urgency\": \"2\"\n      }\n    },\n    {\n      \"id\": \"205\",\n      \"action\": \"update\",\n      \"attributes\": {\n        \"description\": \"{{data.attributes.description}}\",\n        \"due\": \"2019-01-19 18:34:51\",\n        \"urgency\": \"2\"\n      }\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/items/summaries",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"items",
+								"summaries"
+							]
+						},
+						"description": "Count summary of checklist’s item"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": [\n    {\n      \"id\": \"64\",\n      \"action\": \"update\",\n      \"attributes\": {\n        \"description\": \"\",\n        \"due\": \"2019-01-19 18:34:51\",\n        \"urgency\": \"2\"\n      }\n    },\n    {\n      \"id\": \"205\",\n      \"action\": \"update\",\n      \"attributes\": {\n        \"description\": \"{{data.attributes.description}}\",\n        \"due\": \"2019-01-19 18:34:51\",\n        \"urgency\": \"2\"\n      }\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/items",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"items"
+							]
+						},
+						"description": "This endpoint will get all available items."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "History",
+			"item": [
+				{
+					"name": "Get List Of History",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/histories",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"histories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get History By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "M1p3bGpnZ3RGV20zTE9PNTVDU0h4TFJsRkM2Umh0UWVITnp1d3FJYw==",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://lumen-api.local/checklists/histories/1",
+							"protocol": "http",
+							"host": [
+								"lumen-api",
+								"local"
+							],
+							"path": [
+								"checklists",
+								"histories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
